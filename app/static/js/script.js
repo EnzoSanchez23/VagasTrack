@@ -2,7 +2,7 @@ const status_text = document.getElementsByClassName("texto-status");
 const cor_verde = "#16A34A";
 const cor_amarelo = "#CA8A04";
 const cor_vermelho = "#DC2626";
-
+const username_title = document.getElementById("username-title");
 
 for(let i = 0; i < status_text.length; i++){
     if(status_text[i].innerHTML === "Aprovado"){
@@ -20,4 +20,3 @@ for(let i = 0; i < status_text.length; i++){
         status_text[i].style.borderColor = cor_vermelho;
     }
 }
-
