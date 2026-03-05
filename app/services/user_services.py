@@ -15,6 +15,6 @@ def logar_usuario(db:Session, email:str, senha:str):
     if current_user:
         print(f"email: {email} | senha: {senha}")
         print("Usuario logado!")
-        return True
+        return current_user
     print("Usuario Invalido!")
-    return False
+    return None
