@@ -84,31 +84,36 @@
                                     <td><div class="texto-status">Em Processo</div></td>
                                     <td><button class="btn-delete"><i class="fa-solid fa-trash-can"></i> <b>DELETAR</b></button></td>
                                 </tr>
-
-                                <tr>
-                                    <td>asd</td>
-                                    <td>asd</td>
-                                    <td>asd</td>
-                                    <td>asd</td>
-                                    <td>asd</td>
-                                    <td><div class="texto-status">Aprovado</div></td>
-                                    <td><button class="btn-delete"><i class="fa-solid fa-trash-can"></i> <b>DELETAR</b></button></td>
-                                </tr>
-
-                                <tr>
-                                    <td>asd</td>
-                                    <td>asd</td>
-                                    <td>asd</td>
-                                    <td>asd</td>
-                                    <td>asd</td>
-                                    <td><div class="texto-status">Encerrado</div></td>
-                                    <td><button class="btn-delete"><i class="fa-solid fa-trash-can"></i> <b>DELETAR</b></button></td>
-                                </tr>
-
+                                
+                                {% if vagas %}
+                                    {% for vaga in vagas %}
+                                        <tr>
+                                            <td>{{ vaga.nome_vaga }}</td>
+                                            <td>{{ vaga.nome_empresa }}</td>
+                                            <td>{{ vaga.local }}</td>
+                                            <td>{{ vaga.salario }}</td>
+                                            <td>{{ vaga.modelo_vaga }}</td>
+                                            <td>
+                                                <div class="texto-status">
+                                                    {{ vaga.status_vaga }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <form>
+                                                    <button class="btn-delete">
+                                                        <i class="fa-solid fa-trash-can"></i>
+                                                        <b>DELETAR</b>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                {%endif%}
                             </tbody>
+
                             <tfoot>
                                 <tr>
-                                    <td colspan="7" id="texto-total-vagas"><strong>Total de Vagas: 3</strong></td>
+                                    <td colspan="7" id="texto-total-vagas"><strong>Total de Vagas: {{ vagas|length }}</strong></td>
                                 </tr>
                             </tfoot>
                         </table>
