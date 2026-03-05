@@ -4,7 +4,9 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 from app.database.database import get_db
 from sqlalchemy.orm import Session
 from app.services.user_services import criar_usuario, logar_usuario
+from app.services.vagas_services import criar_vaga
 from app.models.user import User
+from app.models.vagas import Vagas
 
 router = APIRouter()
 templates = Jinja2Templates(directory="app/templates")
@@ -22,8 +24,20 @@ def get_current_user(user_id:str = Cookie(None), db:Session = Depends(get_db)):
 
 #==============================End-Points Home===========================
 @router.get("/")
-def home_page(request:Request, user=Depends(get_current_user)):
-    return templates.TemplateResponse("index.html", {"request":request, "user": user})
+def home_page(request:Request, user=Depends(get_current_user), db:Session=Depends(get_db)):
+
+    if not user:
+        return RedirectResponse("/login", status_code=303)
+
+    vagas = db.query(Vagas).filter_by(usuario_id=user.id).all()
+
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request":request,
+            "user": user,
+            "vagas": vagas 
+        })
 #========================================================================
 
 
@@ -66,3 +80,13 @@ def login_user(request:Request, email=Form(), password=Form(), db:Session = Depe
 #=============================================================================================
 
 
+
+
+#===========================================End-Points Adicionar Vaga==================================
+@router.post("/nova-vaga")
+def criar_nova_vaga(request:Request, vaga=Form(), empresa=Form(), local=Form(), salario=Form(), modelo=Form(), user=Depends(get_current_user),db:Session=Depends(get_db)):
+    vaga = criar_vaga(db,vaga,empresa,local,salario,modelo,usuario_id=user.id)
+    if(vaga):
+        response = RedirectResponse(url="/", status_code=303)
+        return response
+#======================================================================================================
