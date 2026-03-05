@@ -22,31 +22,31 @@
             <div class="main-div">
 
                 <div class="right-card">
-                    <form>
+                    <form method="post" action="/nova-vaga">
                         <div class="div-inputs" id="div-vaga">
                             <label>VAGA</label>
-                            <input type="text" placeholder="Vaga" required>
+                            <input type="text" name="vaga" placeholder="Vaga" required>
                         </div>
                         
                         <div class="div-inputs" id="div-empresa">
                             <label>EMPRESA</label>
-                            <input type="text" placeholder="Empresa" required>
+                            <input type="text" name="empresa" placeholder="Empresa" required>
                         </div>
 
                         <div class="div-inputs" id="div-local">
                             <label>LOCAL</label>
-                            <input type="text" placeholder="Local" required>
+                            <input type="text" name="local" placeholder="Local" required>
                         </div>
 
                         <div class="div-inputs" id="div-salario">
                             <label>SALÁRIO</label>
-                            <input type="number" placeholder="R$" required>
+                            <input type="number" name="salario" placeholder="R$" required>
                             <!--<input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" placeholder="R$" required min="0" >-->
                         </div>
 
                         <div class="div-inputs" id="div-modelo">
                             <label>MODELO</label>
-                            <select>
+                            <select name="modelo" required >
                                 <option selected disabled></option>
                                 <option>Presencial</option>
                                 <option>Remoto</option>
