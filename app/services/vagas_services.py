@@ -1,7 +1,7 @@
 from app.models.vagas import Vagas
 from sqlalchemy.orm import Session
 
-def criar_vaga(db:Session, nome_vaga:str, nome_empresa:str, local:str, salario:float, modelo_vaga:str, usuario_id:int, status_vaga:str="Em Progresso"):
+def criar_vaga(db:Session, nome_vaga:str, nome_empresa:str, local:str, salario:float, modelo_vaga:str, usuario_id:int, status_vaga:str="Em Processo"):
     new_vaga = Vagas(nome_vaga=nome_vaga,
                      nome_empresa=nome_empresa,
                      local=local, salario=salario,
