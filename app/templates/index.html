@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gestão Vagas</title>
+        <link rel="stylesheet" href="/static/css/main.css?v=1">
+        <link rel="stylesheet" href="/static/css/inputs.css?v=1">
+        <link rel="stylesheet" href="/static/css/buttons.css?v=1">
+        <link rel="stylesheet" href="/static/css/table.css?v=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    </head>
+    <body>
+        <header>
+            <div class="header-class">
+                <h1>Olá, [USUARIO]</h1>
+                <button class="btn-default" id="btn-logout"><a href="/login" id="anchor-btn"><i class="fa-solid fa-arrow-right-from-bracket"></i><b>Log Out</b></a></button>
+            </div>
+        </header>
+
+        <main>
+            <div class="main-div">
+
+                <div class="right-card">
+                    <form>
+                        <div class="div-inputs" id="div-vaga">
+                            <label>VAGA</label>
+                            <input type="text" placeholder="Vaga" required>
+                        </div>
+                        
+                        <div class="div-inputs" id="div-empresa">
+                            <label>EMPRESA</label>
+                            <input type="text" placeholder="Empresa" required>
+                        </div>
+
+                        <div class="div-inputs" id="div-local">
+                            <label>LOCAL</label>
+                            <input type="text" placeholder="Local" required>
+                        </div>
+
+                        <div class="div-inputs" id="div-salario">
+                            <label>SALÁRIO</label>
+                            <input type="number" placeholder="R$" required>
+                            <!--<input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" placeholder="R$" required min="0" >-->
+                        </div>
+
+                        <div class="div-inputs" id="div-modelo">
+                            <label>MODELO</label>
+                            <select>
+                                <option selected disabled></option>
+                                <option>Presencial</option>
+                                <option>Remoto</option>
+                                <option>Híbrido</option>
+                            </select>
+                        </div>
+
+                        <div class="div-inputs" id="div-botao">
+                            <button class="btn-default" id="btn-nova-vaga"><i class="fa-solid fa-plus"></i> <b>Nova Vaga</b></button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="left-card">
+                    <div class="table-div">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>VAGA</th>
+                                    <th>EMPRESA</th>
+                                    <th>LOCAL</th>
+                                    <th>SALÁRIO</th>
+                                    <th>MODELO</th>
+                                    <th>STATUS</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>asd</td>
+                                    <td>asd</td>
+                                    <td>asd</td>
+                                    <td>asd</td>
+                                    <td>asd</td>
+                                    <td><div class="texto-status">Em Processo</div></td>
+                                    <td><button class="btn-delete"><i class="fa-solid fa-trash-can"></i> <b>DELETAR</b></button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>asd</td>
+                                    <td>asd</td>
+                                    <td>asd</td>
+                                    <td>asd</td>
+                                    <td>asd</td>
+                                    <td><div class="texto-status">Aprovado</div></td>
+                                    <td><button class="btn-delete"><i class="fa-solid fa-trash-can"></i> <b>DELETAR</b></button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>asd</td>
+                                    <td>asd</td>
+                                    <td>asd</td>
+                                    <td>asd</td>
+                                    <td>asd</td>
+                                    <td><div class="texto-status">Encerrado</div></td>
+                                    <td><button class="btn-delete"><i class="fa-solid fa-trash-can"></i> <b>DELETAR</b></button></td>
+                                </tr>
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="7" id="texto-total-vagas"><strong>Total de Vagas: 3</strong></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                
+            </div>
+        </main>
+        
+
+        <script src="/static/js/script.js?v=1" ></script>
+    </body>
+</html>

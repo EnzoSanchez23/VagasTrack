@@ -1,0 +1,147 @@
+:root {
+    --linha-par-cor: #334155;
+    --linha-impar-cor: #475569;
+    --bordas: #334155;
+    --header: #0F172A;
+    --header-text-color: #F8FAFC;
+    --text-color: #E2E8F0;
+    --sombra: rgba(0, 0, 0, 0.2);
+}
+
+.table-div {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+
+table {
+    border: 1px solid var(--bordas);
+    width: 100%;
+    border-radius: 8px;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+thead {
+    background-color: var(--header);
+}
+
+tfoot {
+    background-color: var(--header);
+    border-top: 2px solid var(--bordas);
+}
+
+tfoot td {
+    border: none;
+    color: var(--header-text-color);
+    font-weight: 600;
+    padding: 1rem;
+}
+
+td,
+th {
+    padding: 1rem;
+    margin: 0;
+    text-align: left;
+}
+
+th {
+    color: var(--header-text-color);
+    background-color: var(--header);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--bordas);
+}
+
+td {
+    border-bottom: 1px solid var(--bordas);
+    color: var(--text-color);
+    transition: all 0.2s ease;
+}
+
+tr {
+    transition: background-color 0.2s ease;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--linha-par-cor);
+}
+
+tbody tr:nth-child(odd) {
+    background-color: var(--linha-impar-cor);
+}
+
+tbody tr:hover {
+    background-color: #556B82;
+}
+
+tbody tr:hover td {
+    color: #FFFFFF;
+}
+
+.texto-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 20px;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    width: fit-content;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    min-height: 32px;
+}
+
+/* Estilos para diferentes status */
+.texto-status:contains("Em Processo") {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: #FCD34D;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.texto-status:contains("Aprovado") {
+    background-color: rgba(34, 197, 94, 0.1);
+    color: #86EFAC;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.texto-status:contains("Encerrado") {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #FCA5A5;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Fallback para navegadores que não suportam :contains */
+.texto-status {
+    background-color: rgba(100, 116, 139, 0.1);
+    color: #CBD5E1;
+    border: 1px solid rgba(100, 116, 139, 0.3);
+}
+
+@media (max-width: 768px) {
+    td,
+    th {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    th {
+        font-size: 0.8rem;
+    }
+    
+    tfoot td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .texto-status {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.75rem;
+    }
+}

@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    background-color: #0F172A;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.upper-card {
+    background-color: #1E293B;
+    border-radius: 12px;
+    padding: 28px 28px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
+    border: 1px solid #334155;
+}
+
+.username-div {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.username-div label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #F8FAFC;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.username-div input {
+    padding: 12px 15px;
+    border: 2px solid #334155;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background-color: #334155;
+    color: #F8FAFC;
+}
+
+.username-div input:focus {
+    outline: none;
+    border-color: #2563EB;
+    background-color: #334155;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.username-div input::placeholder {
+    color: #94A3B8;
+}
+
+.username-div button {
+    padding: 12px 15px;
+    background-color: #2563EB;
+    color: #F8FAFC;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.username-div button:hover {
+    background-color: #1D4ED8;
+    transform: translateY(-2px);
+}
+
+.username-div button:active {
+    transform: translateY(0);
+}
+
+.lower-card {
+    background-color: #1E293B;
+    border-radius: 12px;
+    padding: 25px 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    border: 1px solid #334155;
+}
+
+.goto-login-div h2 {
+    
+    color: #F8FAFC;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.goto-login-div button {
+    background-color: #2563EB;
+    border: 2px solid #2563EB;
+    color: #F8FAFC;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.goto-login-div button:hover {
+    background-color: #2563EB;
+    color: #F8FAFC;
+    transform: translateY(-2px);
+}
+
+.goto-login-div a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+    .upper-card {
+        padding: 30px 20px;
+    }
+
+    .lower-card {
+        padding: 20px;
+    }
+
+    .username-div {
+        margin-bottom: 18px;
+    }
+
+    .username-div label {
+        font-size: 13px;
+    }
+
+    .username-div input,
+    .username-div button {
+        font-size: 13px;
+    }
+}

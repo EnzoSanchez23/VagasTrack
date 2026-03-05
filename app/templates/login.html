@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="/static/css/login.css?v=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    </head>
+    <body>
+
+        <div class="container">
+
+            <div class="upper-card">
+                <form method="post" action="/login">
+
+                    <div class="username-div">
+                        <label>Email</label>
+                        <input type="text" name="email" required placeholder="Digite seu email" autocomplete="off">
+                    </div>
+                    
+                    <div class="username-div">
+                        <label>Senha</label>
+                        <input type="password" name="password" required placeholder="Digite sua senha" autocomplete="off">
+                    </div>
+                    
+                    <div class="username-div">
+                        <button><i class="fa-solid fa-arrow-right-to-bracket"></i> Logar</button>
+                    </div>
+                    
+                </form>
+            </div>
+
+            <div class="lower-card">
+                <div class="goto-login-div">
+                    <h2>Não possui uma conta?</h2>
+                    <button><a href="/register"><i class="fa-solid fa-user-plus"></i> Cadastrar</a></button>
+                </div>
+
+            </div>
+
+
+        </div>
+    </body>
+</html>
