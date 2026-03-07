@@ -1,13 +1,18 @@
 from app.models.user import User
 from sqlalchemy.orm import Session
+from sqlalchemy.exc import IntegrityError
 
 def criar_usuario(db:Session, nome_usuario:str, email:str, senha:str):
-    print(f"nome_usuario: {nome_usuario} | email: {email} | senha: {senha}")
+    #print(f"nome_usuario: {nome_usuario} | email: {email} | senha: {senha}")
     new_user = User(nome_usuario=nome_usuario, email=email, senha=senha)
-    db.add(new_user)
-    db.commit()
-    db.refresh(new_user)
-    #return new_user
+    try:
+        db.add(new_user)
+        db.commit()
+        db.refresh(new_user)
+        return new_user
+    except IntegrityError:
+        db.rollback()
+        print("Email já cadastrado!")
 
 def logar_usuario(db:Session, email:str, senha:str):
     current_user = db.query(User).filter_by(email=email, senha=senha).first()
