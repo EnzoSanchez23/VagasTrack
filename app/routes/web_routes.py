@@ -50,8 +50,9 @@ def register_page(request:Request):
 
 @router.post("/register")
 def register_user(request:Request, username=Form(), email=Form(), password=Form(), db:Session = Depends(get_db)):
-    criar_usuario(db, username, email, password)
-    return RedirectResponse(url="/login", status_code=303)
+    if criar_usuario(db, username, email, password):
+        return RedirectResponse(url="/login", status_code=303)
+    return templates.TemplateResponse("register.html", {"request":request})
 #=================================================================================================================
 
 
