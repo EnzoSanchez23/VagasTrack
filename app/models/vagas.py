@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, Float
-from app.database.database import Base, SessionLocal
+from app.database.database import Base
 from sqlalchemy.orm import relationship
 
 class Vagas(Base):

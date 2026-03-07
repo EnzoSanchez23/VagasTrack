@@ -1,7 +1,6 @@
 from app.models.user import User
 from sqlalchemy.orm import Session
 
-#
 def criar_usuario(db:Session, nome_usuario:str, email:str, senha:str):
     print(f"nome_usuario: {nome_usuario} | email: {email} | senha: {senha}")
     new_user = User(nome_usuario=nome_usuario, email=email, senha=senha)

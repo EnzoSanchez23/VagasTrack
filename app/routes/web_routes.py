@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Request, Depends, Form, Cookie
 from fastapi.templating import Jinja2Templates
-from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.responses import RedirectResponse
 from app.database.database import get_db
 from sqlalchemy.orm import Session
 from app.services.user_services import criar_usuario, logar_usuario
