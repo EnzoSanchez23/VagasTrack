@@ -75,9 +75,7 @@ tbody tr:nth-child(odd) {
     background-color: var(--linha-impar-cor);
 }
 
-tbody tr:hover {
-    background-color: #556B82;
-}
+
 
 tbody tr:hover td {
     color: #FFFFFF;
@@ -122,6 +120,11 @@ tbody tr:hover td {
     background-color: rgba(100, 116, 139, 0.1);
     color: #CBD5E1;
     border: 1px solid rgba(100, 116, 139, 0.3);
+}
+
+.table-btn-div {
+    display: grid;
+    gap: 0.5rem;
 }
 
 @media (max-width: 768px) {
