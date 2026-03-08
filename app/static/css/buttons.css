@@ -6,6 +6,9 @@
     --btn-delete: #DC2626;
     --btn-delete-hover: #991B1B;
     --btn-delete-active: #7F1D1D;
+    --btn-update: #446d92;
+    --btn-update-hover: #24496b;
+    --btn-update-active: #0a2b49;
     --sombra: rgba(0, 0, 0, 0.2);
 }
 
@@ -80,6 +83,42 @@ button {
     opacity: 0.5;
     cursor: not-allowed;
     transform: none;
+}
+
+.btn-delete:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-update {
+    background-color: var(--btn-update);
+    border: none;
+    color: var(--texto);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.2);
+    width: 100%;
+}
+
+.btn-update:hover {
+    background-color: var(--btn-update-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.btn-update:active {
+    background-color: var(--btn-update-active);
+    transform: translateY(0);
 }
 
 #btn-logout {
