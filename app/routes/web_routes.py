@@ -91,3 +91,12 @@ def criar_nova_vaga(request:Request, vaga=Form(), empresa=Form(), local=Form(), 
         response = RedirectResponse(url="/", status_code=303)
         return response
 #======================================================================================================
+
+
+#===========================================End-Points Logout==================================
+@router.get("/logout")
+def logout_user(request:Request):
+    response = RedirectResponse(url="/login", status_code=303)
+    response.delete_cookie(key="user_id")
+    return response
+#======================================================================================================
