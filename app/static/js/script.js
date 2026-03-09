@@ -1,6 +1,6 @@
 let modal_div = document.getElementById("modal-div");
 
-function editarVaga(btn , vaga_id) {
+function editarVaga(btn) {
 
     const linha = btn.closest("tr");
     const colunas = linha.querySelectorAll("td");
