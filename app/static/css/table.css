@@ -8,6 +8,10 @@
     --sombra: rgba(0, 0, 0, 0.2);
 }
 
+.hidden-column {
+    display: none;
+}
+
 .table-div {
     width: 100%;
     overflow-x: auto;
