@@ -4,7 +4,7 @@ from fastapi.responses import RedirectResponse
 from app.database.database import get_db
 from sqlalchemy.orm import Session
 from app.services.user_services import criar_usuario, logar_usuario
-from app.services.vagas_services import criar_vaga
+from app.services.vagas_services import criar_vaga, editar_vaga_selecionada
 from app.models.user import User
 from app.models.vagas import Vagas
 
@@ -42,7 +42,6 @@ def home_page(request:Request, user=Depends(get_current_user), db:Session=Depend
 
 
 
-
 #===========================================End-Points Register==================================================
 @router.get("/register")
 def register_page(request:Request):
@@ -54,7 +53,6 @@ def register_user(request:Request, username=Form(), email=Form(), password=Form(
         return RedirectResponse(url="/login", status_code=303)
     return templates.TemplateResponse("register.html", {"request":request})
 #=================================================================================================================
-
 
 
 
@@ -82,7 +80,6 @@ def login_user(request:Request, email=Form(), password=Form(), db:Session = Depe
 
 
 
-
 #===========================================End-Points Adicionar Vaga==================================
 @router.post("/nova-vaga")
 def criar_nova_vaga(request:Request, vaga=Form(), empresa=Form(), local=Form(), salario=Form(), modelo=Form(), user=Depends(get_current_user),db:Session=Depends(get_db)):
@@ -93,10 +90,25 @@ def criar_nova_vaga(request:Request, vaga=Form(), empresa=Form(), local=Form(), 
 #======================================================================================================
 
 
+
+#===========================================End-Points Editar Vaga==================================
+@router.post("/editar-vaga")
+def editar_vaga(request:Request, id=Form() ,vaga=Form(), empresa=Form(), local=Form(), salario=Form(), modelo=Form(), status=Form(), db:Session=Depends(get_db)):
+    vaga_editada = editar_vaga_selecionada(db, id, vaga, empresa, local, salario, modelo, status)
+    if(vaga_editada):
+        response = RedirectResponse(url="/", status_code=303) 
+        return response
+
+#================================================================================================
+
+
+
 #===========================================End-Points Logout==================================
 @router.get("/logout")
 def logout_user(request:Request):
     response = RedirectResponse(url="/login", status_code=303)
     response.delete_cookie(key="user_id")
     return response
-#======================================================================================================
+#================================================================================================
+
+
