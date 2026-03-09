@@ -7,8 +7,8 @@
         <link rel="stylesheet" href="/static/css/main.css?v=1">
         <link rel="stylesheet" href="/static/css/inputs.css?v=1">
         <link rel="stylesheet" href="/static/css/buttons.css?v=2">
-        <link rel="stylesheet" href="/static/css/table.css?v=3">
-        <link rel="stylesheet" href="/static/css/modal.css?v=3">
+        <link rel="stylesheet" href="/static/css/table.css?v=4">
+        <link rel="stylesheet" href="/static/css/modal.css?v=4">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     </head>
     <body>
@@ -68,6 +68,7 @@
                         <table>
                             <thead>
                                 <tr>
+                                    <th class="hidden-column">ID</th>
                                     <th>VAGA</th>
                                     <th>EMPRESA</th>
                                     <th>LOCAL</th>
@@ -81,6 +82,7 @@
                                 {% if vagas %}
                                     {% for vaga in vagas %}
                                         <tr>
+                                            <td class="hidden-column">{{ vaga.id }}</td>
                                             <td>{{ vaga.nome_vaga }}</td>
                                             <td>{{ vaga.nome_empresa }}</td>
                                             <td>{{ vaga.local }}</td>
@@ -100,7 +102,7 @@
                                                             <b>DELETAR</b>
                                                         </button>
                                                     </form>
-                                                    <button class="btn-update" onclick="editarVaga(this)">
+                                                    <button class="btn-update" onclick="editarVaga(this, {{ vaga.id }})">
                                                         <i class="fa-solid fa-pen-to-square"></i>
                                                         <b>EDITAR</b>
                                                     </button>
@@ -139,7 +141,12 @@
                         </div>
                     </div>
 
-                    <form autocomplete="off">
+                    <form method="post" action="/editar-vaga" autocomplete="off">
+
+                        <div class="div-inputs" id="div-id-modal">
+                            <label>ID</label>
+                            <input id="id-input-modal" type="text" name="id" readonly>
+                        </div>
 
                         <div class="div-inputs" id="div-vaga-modal">
                             <label>VAGA</label>
@@ -193,6 +200,6 @@
         </main>
         
 
-        <script src="/static/js/script.js?v=3"></script>
+        <script src="/static/js/script.js?v=4"></script>
     </body>
 </html>
