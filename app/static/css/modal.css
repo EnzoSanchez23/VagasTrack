@@ -15,6 +15,10 @@
     padding: 1rem;
 }
 
+#div-id-modal{
+    display: none;
+}
+
 .modal-div {
     background-color: var(--cards);
     border-radius: 12px;
