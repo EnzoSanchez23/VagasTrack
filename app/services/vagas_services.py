@@ -15,3 +15,23 @@ def criar_vaga(db:Session, nome_vaga:str, nome_empresa:str, local:str, salario:f
     db.refresh(new_vaga)
 
     return new_vaga
+
+
+def editar_vaga_selecionada(db:Session, id:int, nome_vaga:str, nome_empresa:str, local:str, salario:float, modelo_vaga:str, status_vaga:str):
+    vaga_atual = db.query(Vagas).filter_by(id=id).first()
+    
+    if not vaga_atual:
+        return None
+    
+    vaga_atual.nome_vaga = nome_vaga
+    vaga_atual.nome_empresa = nome_empresa
+    vaga_atual.local = local
+    vaga_atual.salario = salario
+    vaga_atual.modelo_vaga = modelo_vaga
+    vaga_atual.status_vaga = status_vaga
+
+    db.commit()
+    db.refresh(vaga_atual)
+
+    return vaga_atual
+    
