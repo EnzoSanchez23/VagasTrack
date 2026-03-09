@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="/static/css/inputs.css?v=1">
         <link rel="stylesheet" href="/static/css/buttons.css?v=2">
         <link rel="stylesheet" href="/static/css/table.css?v=3">
+        <link rel="stylesheet" href="/static/css/modal.css?v=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     </head>
     <body>
@@ -91,19 +92,20 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <form>
-                                                    <div class="table-btn-div">
+                                                
+                                                <div class="table-btn-div">
+                                                    <form>
                                                         <button class="btn-delete">
                                                             <i class="fa-solid fa-trash-can"></i>
                                                             <b>DELETAR</b>
                                                         </button>
-                                                        
-                                                        <button class="btn-update">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                            <b>EDITAR</b>
-                                                        </button>
-                                                    </div>
-                                                </form>
+                                                    </form>
+                                                    <button class="btn-update" onclick="openModal()">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                        <b>EDITAR</b>
+                                                    </button>
+                                                </div>
+                                                
                                             </td>
                                         </tr>
                                         {% endfor %}
@@ -120,9 +122,77 @@
                 </div>
                 
             </div>
+
+            <div class="modal-overlay-div" id="modal-div">
+
+                <div class="modal-div">
+
+                    <div class="header-modal-div">  
+                        <div class="header-title-div">
+                            <h2>Editar Vaga</h2>
+                        </div>
+
+                        <div class="header-close-btn">
+                            <button class="close-modal-btn" id="close-modal-btn" onclick="closeModal()">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <form>
+
+                        <div class="div-inputs" id="div-vaga-modal">
+                            <label>VAGA</label>
+                            <input id="vaga-input-modal" type="text" name="vaga" placeholder="Vaga" required>
+                        </div>
+
+                        <div class="div-inputs" id="div-empresa-modal">
+                            <label>EMPRESA</label>
+                            <input id="empresa-input-modal" type="text" name="empresa" placeholder="Empresa" required>
+                        </div>
+
+                        <div class="div-inputs" id="div-local-modal">
+                            <label>LOCAL</label>
+                            <input id="local-input-modal" type="text" name="local" placeholder="Local" required>
+                        </div>
+
+                        <div class="div-inputs" id="div-salario-modal">
+                            <label>SALÁRIO</label>
+                            <input id="salario-input-modal" type="number" name="salario" placeholder="R$" required>
+                        </div>
+
+                        <div class="div-inputs" id="div-modelo-modal">
+                            <label>MODELO</label>
+                            <select id="modelo-input-modal" name="modelo" required >
+                                <option selected disabled></option>
+                                <option>Presencial</option>
+                                <option>Remoto</option>
+                                <option>Híbrido</option>
+                            </select>
+                        </div>
+
+                        <div class="div-inputs" id="div-status-modal">
+                            <label>STATUS</label>
+                            <select id="status-input-modal" name="status" required >
+                                <option selected disabled></option>
+                                <option>Em Processo</option>
+                                <option>Aceito</option>
+                                <option>Recusado</option>
+                            </select>
+                        </div>
+
+                        <div class="div-inputs" id="div-botao-modal">
+                            <button class="btn-default" id="btn-modal-update"><i class="fa-solid fa-floppy-disk"></i><b>Salvar Edição</b></button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
         </main>
         
 
-        <script src="/static/js/script.js?v=1" ></script>
+        <script src="/static/js/script.js?v=3"></script>
     </body>
 </html>
