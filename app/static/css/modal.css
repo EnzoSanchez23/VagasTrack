@@ -11,6 +11,8 @@
     z-index: 200;
     backdrop-filter: blur(5px);
     display: none;
+
+    padding: 1rem;
 }
 
 .modal-div {
@@ -21,6 +23,9 @@
     box-shadow: 0 4px 12px var(--sombra);
     width: 90%;
     max-width: 400px;
+
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 #div-botao-modal {
