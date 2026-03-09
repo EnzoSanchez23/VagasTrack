@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="/static/css/inputs.css?v=1">
         <link rel="stylesheet" href="/static/css/buttons.css?v=2">
         <link rel="stylesheet" href="/static/css/table.css?v=3">
-        <link rel="stylesheet" href="/static/css/modal.css?v=1">
+        <link rel="stylesheet" href="/static/css/modal.css?v=3">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     </head>
     <body>
@@ -25,7 +25,7 @@
             <div class="main-div">
 
                 <div class="right-card">
-                    <form method="post" action="/nova-vaga">
+                    <form method="post" action="/nova-vaga" autocomplete="off">
                         <div class="div-inputs" id="div-vaga">
                             <label>VAGA</label>
                             <input type="text" name="vaga" placeholder="Vaga" required>
@@ -100,7 +100,7 @@
                                                             <b>DELETAR</b>
                                                         </button>
                                                     </form>
-                                                    <button class="btn-update" onclick="openModal()">
+                                                    <button class="btn-update" onclick="editarVaga(this)">
                                                         <i class="fa-solid fa-pen-to-square"></i>
                                                         <b>EDITAR</b>
                                                     </button>
@@ -139,7 +139,7 @@
                         </div>
                     </div>
 
-                    <form>
+                    <form autocomplete="off">
 
                         <div class="div-inputs" id="div-vaga-modal">
                             <label>VAGA</label>
