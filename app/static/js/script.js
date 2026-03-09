@@ -1,17 +1,19 @@
 let modal_div = document.getElementById("modal-div");
 
-function editarVaga(btn){
+function editarVaga(btn , vaga_id) {
 
     const linha = btn.closest("tr");
     const colunas = linha.querySelectorAll("td");
 
-    const vaga = colunas[0].textContent;
-    const empresa = colunas[1].textContent;
-    const local = colunas[2].textContent;
-    const salario = colunas[3].textContent;
-    const modelo = colunas[4].textContent.trim();
-    const status = colunas[5].textContent.trim();
+    const id = colunas[0].textContent;
+    const vaga = colunas[1].textContent;
+    const empresa = colunas[2].textContent;
+    const local = colunas[3].textContent;
+    const salario = colunas[4].textContent;
+    const modelo = colunas[5].textContent.trim();
+    const status = colunas[6].textContent.trim();
 
+    document.getElementById("id-input-modal").value = id;
     document.getElementById("vaga-input-modal").value = vaga;
     document.getElementById("empresa-input-modal").value = empresa;
     document.getElementById("local-input-modal").value = local;
