@@ -1,0 +1,66 @@
+.modal-overlay-div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    backdrop-filter: blur(5px);
+    display: none;
+}
+
+.modal-div {
+    background-color: var(--cards);
+    border-radius: 12px;
+    border: 1px solid var(--borda);
+    padding: 2rem;
+    box-shadow: 0 4px 12px var(--sombra);
+    width: 90%;
+    max-width: 400px;
+}
+
+#div-botao-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-modal-div {
+    position: relative;
+    height: 3rem;
+    margin-bottom: 1rem;
+}
+
+.header-title-div {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.header-title-div h2 {
+    margin: 0;
+}
+
+.header-close-btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.close-modal-btn {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+#btn-modal-update{
+    width: fit-content;
+}
