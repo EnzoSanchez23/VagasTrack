@@ -72,6 +72,16 @@ def login_user(request:Request, email=Form(), password=Form(), db:Session = Depe
     user = logar_usuario(db, email, password)
     session_id = criar_session(user.id)
 
+    if (user.id == 1):
+        response = RedirectResponse(url="/admin", status_code=303)
+        response.set_cookie(
+            key="session_id",
+            value=session_id,
+            httponly=True,
+            samesite="lax"
+            )
+        return response
+
     if (user):
         response = RedirectResponse(url="/", status_code=303)
         response.set_cookie(
@@ -111,7 +121,7 @@ def editar_vaga(request:Request, id=Form() ,vaga=Form(), empresa=Form(), local=F
 
 
 
-#===========================================End-Points Logout==================================
+#===========================================End-Points Logout===================================
 @router.get("/logout")
 def logout_user(request:Request, session_id:str=Cookie(None)):
     if(session_id):
@@ -123,3 +133,18 @@ def logout_user(request:Request, session_id:str=Cookie(None)):
 #================================================================================================
 
 
+
+#===========================================End-Points Admin===================================
+@router.get("/admin")
+def admin_page(request:Request, user=Depends(get_current_user)):
+
+    if not user:
+        response = RedirectResponse(url="/login", status_code=303)
+        return response
+
+    if(user.id != 1):
+        response = RedirectResponse(url="/", status_code=303)
+        return response
+    
+    return templates.TemplateResponse(
+        "admin.html",{"request":request, "user": user})
