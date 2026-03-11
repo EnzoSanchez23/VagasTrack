@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Panel</title>
+        <link rel="stylesheet" href="/static/css/main.css?v=1">
+        <link rel="stylesheet" href="/static/css/inputs.css?v=1">
+        <link rel="stylesheet" href="/static/css/buttons.css?v=2">
+        <link rel="stylesheet" href="/static/css/table.css?v=3">
+        <link rel="stylesheet" href="/static/css/modal.css?v=1">
+        <link rel="stylesheet" href="/static/css/admin.css?v=5">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    </head>
+    <body>
+        <header>
+            <div class="header-class">
+                <h1 id="username-title">Olá, {{user.nome_usuario}}</h1>
+                <form method="get" action="/logout">
+                    <button class="btn-default" id="btn-logout"><i class="fa-solid fa-arrow-right-from-bracket"></i><b>Log Out</b></button>
+                </form>
+            </div>
+        </header>
+        <main class="main-div-admin">
+            <div class="card-div-admin">
+                <div class="title-div-admin">
+                    <h1>Lista de Usuarios</h1>
+                </div>
+                <div class="table-div-admin">
+                
+                    <div class="admin-table-container">
+                        
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th class="hidden-column">ID</th>
+                                    <th>USUARIO</th>
+                                    <th>EMAIL</th>
+                                    <th>TOTAL DE VAGAS</th>
+                                    <th> </th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {% for usuario in usuarios %}
+                                    <tr>
+                                        <td class="hidden-column">{{usuario.id}}</td>
+                                        <td>{{usuario.nome_usuario}}</td>
+                                        <td>{{usuario.email}}</td>
+                                        <td>{{usuario.vagas|length}}</td>
+                                        <td>
+                                            <form>
+                                                <div class="table-btn-div">
+                                                    <button class="btn-delete">
+                                                        <i class="fa-solid fa-trash-can"></i>
+                                                        <b>DELETAR</b>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+        
+    </body>
+</html>
