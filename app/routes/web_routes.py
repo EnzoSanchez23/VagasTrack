@@ -70,19 +70,20 @@ def login_page(request:Request):
 @router.post("/login")
 def login_user(request:Request, email=Form(), password=Form(), db:Session = Depends(get_db)):
     user = logar_usuario(db, email, password)
-    session_id = criar_session(user.id)
-
-    if (user.id == 1):
-        response = RedirectResponse(url="/admin", status_code=303)
-        response.set_cookie(
-            key="session_id",
-            value=session_id,
-            httponly=True,
-            samesite="lax"
-            )
-        return response
 
     if (user):
+        session_id = criar_session(user.id)
+
+        if (user.id == 1):
+            response = RedirectResponse(url="/admin", status_code=303)
+            response.set_cookie(
+                key="session_id",
+                value=session_id,
+                httponly=True,
+                samesite="lax"
+                )
+            return response
+        
         response = RedirectResponse(url="/", status_code=303)
         response.set_cookie(
             key="session_id",
@@ -136,7 +137,10 @@ def logout_user(request:Request, session_id:str=Cookie(None)):
 
 #===========================================End-Points Admin===================================
 @router.get("/admin")
-def admin_page(request:Request, user=Depends(get_current_user)):
+def admin_page(request:Request, user=Depends(get_current_user), db:Session=Depends(get_db)):
+
+    vagas = db.query(Vagas).all()
+    usuarios = db.query(User).all()
 
     if not user:
         response = RedirectResponse(url="/login", status_code=303)
@@ -147,4 +151,5 @@ def admin_page(request:Request, user=Depends(get_current_user)):
         return response
     
     return templates.TemplateResponse(
-        "admin.html",{"request":request, "user": user})
+        "admin.html",{"request":request, "user": user, "vagas":vagas, "usuarios": usuarios})
+#================================================================================================
