@@ -1,0 +1,111 @@
+:root {
+    --fundo-principal: #0F172A;
+    --cards: #1E293B;
+    --fundo-header: #020617;
+    --cor-texto: #F8FAFC;
+    --cor-texto-secundaria: #CBD5E1;
+    --borda: #334155;
+    --sombra: rgba(0, 0, 0, 0.3);
+
+    --linha-par: #334155;
+    --linha-impar: #475569;
+}
+
+/* ================= MAIN ================= */
+
+.main-div-admin{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+/* ================= CARD ================= */
+
+.card-div-admin {
+    background-color: var(--cards);
+    border-radius: 12px;
+    border: 1px solid var(--borda);
+    width: 100%;
+    max-width: 700px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px var(--sombra);
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================= TITLE ================= */
+
+.title-div-admin{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    align-items: center;
+    text-align: center;
+}
+
+/* ================= TABLE CONTAINER ================= */
+
+.admin-table-container{
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+}
+
+/* ================= TABLE ================= */
+
+.admin-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table thead{
+    background-color: var(--fundo-header);
+    position: sticky;
+    top: 0;
+}
+
+.admin-table th{
+    padding: 1rem;
+    text-align: left;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--cor-texto);
+    border-bottom: 2px solid var(--borda);
+}
+
+.admin-table td{
+    padding: 1rem;
+    border-bottom: 1px solid var(--borda);
+    color: var(--cor-texto-secundaria);
+}
+
+/* zebra rows */
+
+.admin-table tbody tr:nth-child(even){
+    background-color: var(--linha-par);
+}
+
+.admin-table tbody tr:nth-child(odd){
+    background-color: var(--linha-impar);
+}
+
+.admin-table tbody tr:hover{
+    background-color: #64748B;
+}
+
+/* hidden id */
+
+.hidden-column{
+    display: none;
+}
+
+/* delete button container */
+
+.table-btn-div{
+    display: flex;
+    justify-content: flex-end;
+    width: fit-content;
+}
