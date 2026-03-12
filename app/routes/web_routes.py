@@ -99,18 +99,15 @@ def login_user(request:Request, email=Form(), password=Form(), db:Session = Depe
 
 
 
-#===========================================End-Points Adicionar Vaga==================================
+#===========================================End-Points Vagas==================================
 @router.post("/nova-vaga")
 def criar_nova_vaga(request:Request, vaga=Form(), empresa=Form(), local=Form(), salario=Form(), modelo=Form(), user=Depends(get_current_user),db:Session=Depends(get_db)):
     vaga = criar_vaga(db,vaga,empresa,local,salario,modelo,usuario_id=user.id)
     if(vaga):
         response = RedirectResponse(url="/", status_code=303)
         return response
-#======================================================================================================
 
 
-
-#===========================================End-Points Editar Vaga==================================
 @router.post("/editar-vaga")
 def editar_vaga(request:Request, id=Form() ,vaga=Form(), empresa=Form(), local=Form(), salario=Form(), modelo=Form(), status=Form(), db:Session=Depends(get_db)):
     vaga_editada = editar_vaga_selecionada(db, id, vaga, empresa, local, salario, modelo, status)
@@ -118,11 +115,7 @@ def editar_vaga(request:Request, id=Form() ,vaga=Form(), empresa=Form(), local=F
         response = RedirectResponse(url="/", status_code=303) 
         return response
 
-#================================================================================================
 
-
-
-#===========================================End-Points Editar Vaga==================================
 @router.post("/deletar-vaga")
 def deletar_vaga(request:Request, db:Session=Depends(get_db), idVaga=Form(), user=Depends(get_current_user)):
     
@@ -165,4 +158,9 @@ def admin_page(request:Request, user=Depends(get_current_user), db:Session=Depen
     
     return templates.TemplateResponse(
         "admin.html",{"request":request, "user": user, "vagas":vagas, "usuarios": usuarios})
+
+
+
+
 #================================================================================================
+
