@@ -45,8 +45,10 @@ Este projeto foi desenvolvido como **projeto de portfólio**, com foco em pratic
 ---
 
 # Estrutura do Projeto
+```bash
 app/
 │
+│── core/ #Controle das sessões
 ├── models/ # Modelos do banco de dados
 ├── services/ # Lógica de negócio
 ├── routes/ # Rotas da aplicação
@@ -54,6 +56,7 @@ app/
 ├── static/ # Arquivos CSS e JavaScript
 │
 └── main.py # Arquivo principal da aplicação
+```
 ---
 
 # Como Executar o Projeto
