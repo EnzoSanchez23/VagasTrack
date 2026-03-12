@@ -84,8 +84,8 @@ pip install -r requirements.txt
 
 ### 6. Executar a aplicação
 uvicorn app.main:app --reload
-A aplicação estará disponível em: http://127.0.0.1:8000
 
+A aplicação estará disponível em: http://127.0.0.1:8000
 
 ---
 
