@@ -4,7 +4,7 @@ from fastapi.responses import RedirectResponse
 from app.database.database import get_db
 from sqlalchemy.orm import Session
 from app.services.user_services import criar_usuario, logar_usuario
-from app.services.vagas_services import criar_vaga, editar_vaga_selecionada
+from app.services.vagas_services import criar_vaga, editar_vaga_selecionada, deletar_vaga_selecionada
 from app.models.user import User
 from app.models.vagas import Vagas
 from app.core.sessions import get_user_id, criar_session, delete_session
@@ -117,6 +117,19 @@ def editar_vaga(request:Request, id=Form() ,vaga=Form(), empresa=Form(), local=F
     if(vaga_editada):
         response = RedirectResponse(url="/", status_code=303) 
         return response
+
+#================================================================================================
+
+
+
+#===========================================End-Points Editar Vaga==================================
+@router.post("/deletar-vaga")
+def deletar_vaga(request:Request, db:Session=Depends(get_db), idVaga=Form(), user=Depends(get_current_user)):
+    
+    vaga = deletar_vaga_selecionada(db, idVaga, user.id)
+
+    if (vaga):
+        return RedirectResponse(url="/", status_code=303)
 
 #================================================================================================
 
