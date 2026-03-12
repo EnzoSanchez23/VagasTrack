@@ -4,7 +4,7 @@ O **VagasTrack** é uma aplicação web criada para ajudar usuários a **organiz
 
 O sistema permite que usuários se cadastrem, façam login e gerenciem suas próprias candidaturas através de um painel simples e intuitivo.
 
-Além disso, o projeto conta com um **painel administrativo**, onde o administrador pode visualizar os usuários cadastrados e gerenciar suas informações.
+Além disso, o projeto conta com um **painel administrativo**, onde o administrador pode visualizar os usuários cadastrados e o total de vagas de cada usuário.
 
 Este projeto foi desenvolvido como **projeto de portfólio**, com foco em praticar conceitos importantes de desenvolvimento backend, como autenticação, manipulação de banco de dados e operações CRUD.
 
@@ -21,7 +21,7 @@ Este projeto foi desenvolvido como **projeto de portfólio**, com foco em pratic
   - Deletar vaga  
 - Cada usuário visualiza **apenas suas próprias vagas**  
 - Painel administrativo  
-- Admin pode visualizar usuários e suas vagas  
+- Admin pode visualizar usuários e suas vagas totais  
 - Proteção para impedir a exclusão do usuário administrador  
 
 ---
