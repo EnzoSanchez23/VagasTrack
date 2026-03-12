@@ -1,6 +1,7 @@
 from app.models.user import User
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
+from app.models.vagas import Vagas
 
 def criar_usuario(db:Session, nome_usuario:str, email:str, senha:str):
     #print(f"nome_usuario: {nome_usuario} | email: {email} | senha: {senha}")
@@ -22,3 +23,16 @@ def logar_usuario(db:Session, email:str, senha:str):
         return current_user
     print("Usuario Invalido!")
     return None
+
+def deletar_usuario(db:Session, userID:int):
+    usuario_selecionado = db.query(User).filter_by(id=userID).first()
+    todas_vagas_usuario = db.query(Vagas).filter_by(usuario_id=userID).all()
+
+    if not usuario_selecionado:
+        return None
+    
+    db.delete(usuario_selecionado)
+    for vaga in todas_vagas_usuario:
+        db.delete(vaga)
+    db.commit()
+    return usuario_selecionado
