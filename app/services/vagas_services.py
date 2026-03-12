@@ -34,4 +34,13 @@ def editar_vaga_selecionada(db:Session, id:int, nome_vaga:str, nome_empresa:str,
     db.refresh(vaga_atual)
 
     return vaga_atual
-    
+
+def deletar_vaga_selecionada(db:Session, vaga_id:int, user_id:int):
+    deletar_vaga_selecionada = db.query(Vagas).filter_by(id=vaga_id, usuario_id=user_id).first()
+
+    if not deletar_vaga_selecionada:
+        return None
+
+    db.delete(deletar_vaga_selecionada)
+    db.commit()
+    return deletar_vaga_selecionada
