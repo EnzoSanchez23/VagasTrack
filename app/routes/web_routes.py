@@ -3,7 +3,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import RedirectResponse
 from app.database.database import get_db
 from sqlalchemy.orm import Session
-from app.services.user_services import criar_usuario, logar_usuario
+from app.services.user_services import criar_usuario, logar_usuario, deletar_usuario
 from app.services.vagas_services import criar_vaga, editar_vaga_selecionada, deletar_vaga_selecionada
 from app.models.user import User
 from app.models.vagas import Vagas
@@ -146,7 +146,7 @@ def logout_user(request:Request, session_id:str=Cookie(None)):
 def admin_page(request:Request, user=Depends(get_current_user), db:Session=Depends(get_db)):
 
     vagas = db.query(Vagas).all()
-    usuarios = db.query(User).all()
+    usuarios = db.query(User).filter(User.id != 1).all()
 
     if not user:
         response = RedirectResponse(url="/login", status_code=303)
@@ -160,7 +160,13 @@ def admin_page(request:Request, user=Depends(get_current_user), db:Session=Depen
         "admin.html",{"request":request, "user": user, "vagas":vagas, "usuarios": usuarios})
 
 
+@router.post("/admin-delete-user")
+def admin_delete_user(request:Request, db:Session=Depends(get_db), idUsuario=Form()):
+    usuario_selecionado = deletar_usuario(db, idUsuario)
 
+    if(usuario_selecionado):
+
+        return RedirectResponse(url="/admin", status_code=303)
 
 #================================================================================================
 
