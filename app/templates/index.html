@@ -96,7 +96,8 @@
                                             <td>
                                                 
                                                 <div class="table-btn-div">
-                                                    <form>
+                                                    <form method="post" action="/deletar-vaga">
+                                                        <input type="hidden" name="idVaga" value={{ vaga.id }}>
                                                         <button class="btn-delete">
                                                             <i class="fa-solid fa-trash-can"></i>
                                                             <b>DELETAR</b>
