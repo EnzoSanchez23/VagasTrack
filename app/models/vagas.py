@@ -3,9 +3,7 @@ from app.database.database import Base
 from sqlalchemy.orm import relationship
 
 class Vagas(Base):
-
     __tablename__ = "vagas"
-
     id = Column("ID", Integer, primary_key=True, autoincrement=True)
     nome_vaga = Column("nome_vaga", String)
     nome_empresa = Column("nome_empresa", String)
